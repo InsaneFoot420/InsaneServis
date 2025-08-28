@@ -2,6 +2,7 @@
 :root {
     --primary-color: #00e0ff;
     --secondary-color: #00ffa7;
+    --hell-red: #ff2222;
     --bg-dark: #0D1117;
     --bg-light: #161B22;
     --border-color: #30363d;
@@ -142,13 +143,14 @@ body {
 
 /* --- HERO SEKCE --- */
 .hero {
-    background: radial-gradient(circle at 20% 80%, rgba(0, 224, 255, 0.1), transparent 40%),
-                radial-gradient(circle at 80% 30%, rgba(0, 255, 167, 0.08), transparent 35%),
+    /* ZMĚNA ZDE: Přidána rudá záře do pozadí */
+    background: radial-gradient(circle at 50% 50%, rgba(150, 20, 20, 0.2), transparent 60%),
                 var(--bg-dark);
     padding-top: 80px;
     min-height: 90vh;
     display: flex;
     align-items: center;
+    overflow: hidden;
 }
 .hero .container {
     display: flex;
@@ -159,6 +161,7 @@ body {
 .hero-text {
     max-width: 50%;
     flex-shrink: 0;
+    z-index: 2;
 }
 .hero h1 {
     font-family: var(--font-heading);
@@ -179,11 +182,13 @@ body {
 .hero-image {
     max-width: 45%;
     flex-shrink: 0;
+    z-index: 1;
 }
 .hero-image img {
     width: 100%;
     animation: float 6s ease-in-out infinite;
-    filter: drop-shadow(0 0 30px rgba(0, 224, 255, 0.2));
+    /* ZMĚNA ZDE: Přidán filtr pro rudou záři */
+    filter: drop-shadow(0 0 40px rgba(255, 30, 30, 0.4));
 }
 @keyframes float {
     0% { transform: translateY(0px); }
