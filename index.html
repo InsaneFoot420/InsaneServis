@@ -1,327 +1,115 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insane-Servis - Specialisti na elektrokoloběžky</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Exo+2:wght@400;700&display=swap');
-
-        :root {
-            --main-bg-color: #0d0d0d;
-            --primary-accent-color: #25d366;
-            --text-color: #ffffff;
-            --secondary-text-color: #a0a0a0;
-            --container-bg-color: #1a1a1a;
-            --font-display: 'Orbitron', sans-serif;
-            --font-body: 'Exo 2', sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background-color: var(--main-bg-color);
-            color: var(--text-color);
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* --- Header --- */
-        header {
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            background-color: rgba(13, 13, 13, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: var(--font-display);
-            font-size: 24px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        
-        .logo-icon {
-            color: var(--primary-accent-color);
-            margin-right: 8px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            align-items: center;
-        }
-
-        nav ul li {
-            margin-left: 30px;
-        }
-
-        nav ul li a {
-            color: var(--secondary-text-color);
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.3s ease;
-            font-size: 14px;
-        }
-
-        nav ul li a:hover {
-            color: var(--text-color);
-        }
-
-        .cta-button {
-            font-family: var(--font-display);
-            background-color: var(--primary-accent-color);
-            color: var(--main-bg-color);
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: background-color 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background-color: #1fae52;
-            color: var(--main-bg-color);
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            height: 100vh;
-            background-image: url('1000003277.png');
-            background-size: contain;
-            background-position: center bottom;
-            background-repeat: no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        
-        .hero-content {
-            margin-top: -15vh;
-        }
-
-        .hero h1, .hero h2, .section-title {
-            font-family: var(--font-display);
-            text-transform: uppercase;
-        }
-
-        .hero h1 {
-            font-size: 18px;
-            letter-spacing: 3px;
-            color: var(--secondary-text-color);
-            margin-bottom: 10px;
-        }
-
-        .hero h2 {
-            font-size: 95px;
-            font-weight: 900;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
-            text-shadow: 0 0 20px rgba(0,0,0,0.5);
-        }
-
-        .hero-buttons .service-button {
-            font-family: var(--font-display);
-            background-color: var(--primary-accent-color);
-            color: var(--main-bg-color);
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            margin: 0 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .hero-buttons .service-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px var(--primary-accent-color);
-        }
-
-        .hero-buttons a:not(.service-button) {
-            color: var(--secondary-text-color);
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: 700;
-        }
-         .hero-buttons a:not(.service-button):hover {
-            color: var(--text-color);
-         }
-
-        /* --- Services Section --- */
-        .services {
-            padding: 100px 0;
-            text-align: center;
-        }
-        
-        .section-title {
-            font-size: 36px;
-            font-weight: 900;
-            margin-bottom: 60px;
-        }
-
-        .services-grid {
-            display: flex;
-            justify-content: space-around;
-            gap: 20px;
-        }
-
-        .service-item {
-            background-color: var(--container-bg-color);
-            padding: 30px;
-            border-radius: 10px;
-            width: 18%;
-        }
-        
-        .service-item .icon {
-            font-size: 40px;
-            color: var(--primary-accent-color);
-            margin-bottom: 20px;
-        }
-        
-        .service-item h3 {
-            font-family: var(--font-display);
-            font-size: 18px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-        
-        .service-item p {
-            font-size: 14px;
-            color: var(--secondary-text-color);
-            line-height: 1.6;
-        }
-
-        /* --- Gallery Section --- */
-        .gallery {
-            padding: 50px 0;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-        
-        .placeholder {
-            width: 100%;
-            height: 250px;
-            background-color: var(--container-bg-color);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-display);
-        }
-    </style>
+    <title>INSANEKOLOBĚKY</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
     <header>
         <div class="container">
+            <div class="logo">⚡ INSANEKOLOBĚKY</div>
             <nav>
-                <div class="logo"><span class="logo-icon">⚡</span>Insane-Servis</div>
                 <ul>
-                    <li><a href="#">SLUŽBY</a></li>
-                    <li><a href="#">OBLASTI</a></li>
-                    <li><a href="#">GALERIE</a></li>
-                    <li><a href="#">KONTAKT</a></li>
-                    <li><a href="#" class="cta-button">DOMLUVIT SERVIS</a></li>
+                    <li><a href="#">SUZZY</a></li>
+                    <li><a href="#">BLICAR</a></li>
+                    <li><a href="#">GABIMEE</a></li>
+                    <li><a href="#">ZOTRAT</a></li>
+                    <li><a href="#" class="donate-button">DONNET EXPE</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>SPECIALISTI NA ELEKTROKOLOBĚŽKY</h1>
-                <h2>INSANE-SERVIS</h2>
-                <div class="hero-buttons">
-                    <a href="#" class="service-button">SERVISY</a>
-                    <a href="#">Chci upravit svoji</a>
-                    <a href="#">Klouby pérování</a>
-                </div>
+    <section class="hero">
+        <div class="container">
+            <h1>SPECIALISTT NA ELEKTROKOLBĚŽKY</h1>
+            <h2>INSANEKOLOBĚK</h2>
+            <div class="hero-buttons">
+                <button>SORVICIV</button>
+                <button>Oot opt ara</button>
+                <button>Wiley proes</button>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="services">
-            <div class="container">
-                <h2 class="section-title">CO DĚLÁM NEJČASTĚJI</h2>
-                <div class="services-grid">
-                    <div class="service-item">
-                        <div class="icon">🛠️</div>
-                        <h3>MISTROUNA</h3>
-                        <p>Odemknutí omezení rychlosti, přizpůsobení výkonu</p>
-                    </div>
-                    <div class="service-item">
-                        <div class="icon">🔩</div>
-                        <h3>AMOFASNY</h3>
-                        <p>Výměna standardních tlumičů za prémiové</p>
-                    </div>
-                    <div class="service-item">
-                        <div class="icon">🔋</div>
-                        <h3>FOCRIÁLÍTA</h3>
-                        <p>Zvýšení kapacity baterie pro delší dojezd</p>
-                    </div>
-                    <div class="service-item">
-                        <div class="icon">💨</div>
-                        <h3>PADEREDY</h3>
-                        <p>Instalace výkonnějších brzdových systémů</p>
-                    </div>
-                    <div class="service-item">
-                        <div class="icon">🖼️</div>
-                        <h3>GALERIKY</h3>
-                        <p>Ukázky mých realizovaných projektů a úprav</p>
-                    </div>
+    <section class="what-i-do">
+        <div class="container">
+            <h2>CO DĚLÁM NEJČASTEJI</h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="icon">❌</div>
+                    <h3>NISTROUNA</h3>
+                    <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🔲</div>
+                    <h3>AMOFASNY</h3>
+                    <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🔋</div>
+                    <h3>FOCRIALITA</h3>
+                    <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">⚡</div>
+                    <h3>PADEREIOY</h3>
+                    <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🖼️</div>
+                    <h3>GALERIKT</h3>
+                    <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </div>
-        </section>
-        
-        <section class="gallery">
-            <div class="container">
-                <h2 class="section-title">GALERIE MÉ PRÁCE</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <div class="placeholder">OBRÁZEK 1</div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="placeholder">OBRÁZEK 2</div>
-                    </div>
-                    <div class="gallery-item">
-                         <div class="placeholder">OBRÁZEK 3</div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-    </main>
+    <section class="gallery-section">
+        <div class="container">
+            <h2>GALER MÉ PRACE</h2>
+            <div class="gallery-images">
+                <img src="gallery_image_1.png" alt="Gallery Image 1">
+                <img src="gallery_image_2.png" alt="Gallery Image 2">
+                <img src="gallery_image_3.png" alt="Gallery Image 3">
+            </div>
+        </div>
+    </section>
+
+    <section class="service-section">
+        <div class="container">
+            <h2>SERVICE</h2>
+            <!-- Content for Service section -->
+        </div>
+    </section>
+
+    <section class="cartiale-section">
+        <div class="container">
+            <h2>CARTIALE HE AKMİS</h2>
+            <!-- Content for Cartiale section -->
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="container">
+            <h2>GALER MÉ PRACE</h2>
+            <div class="gallery-images">
+                <img src="gallery_image_4.png" alt="Gallery Image 4">
+                <img src="gallery_image_5.png" alt="Gallery Image 5">
+                <img src="gallery_image_6.png" alt="Gallery Image 6">
+            </div>
+        </div>
+    </section>
+
+    <section class="slowen-section">
+        <div class="container">
+            <h2>SLOWEN ALINGARORS</h2>
+            <!-- Content for Slowen section -->
+        </div>
+    </section>
 
 </body>
 </html>
+
