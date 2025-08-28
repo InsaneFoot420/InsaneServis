@@ -1,408 +1,327 @@
-/* --- ZÁKLADNÍ NASTAVENÍ A PROMĚNNÉ --- */
-:root {
-    --primary-color: #00e0ff;
-    --secondary-color: #00ffa7;
-    --hell-red: #ff2222;
-    --bg-dark: #0D1117;
-    --bg-light: #161B22;
-    --border-color: #30363d;
-    --text-primary: #c9d1d9;
-    --text-secondary: #8b949e;
-    --font-heading: 'Oswald', sans-serif;
-    --font-body: 'Roboto', sans-serif;
-    --container-width: 1200px;
-}
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insane-Servis - Specialisti na elektrokoloběžky</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Exo+2:wght@400;700&display=swap');
 
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+        :root {
+            --main-bg-color: #0d0d0d;
+            --primary-accent-color: #25d366;
+            --text-color: #ffffff;
+            --secondary-text-color: #a0a0a0;
+            --container-bg-color: #1a1a1a;
+            --font-display: 'Orbitron', sans-serif;
+            --font-body: 'Exo 2', sans-serif;
+        }
 
-html {
-    scroll-behavior: smooth;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: var(--font-body);
-    background-color: var(--bg-dark);
-    color: var(--text-primary);
-    line-height: 1.6;
-}
+        body {
+            font-family: var(--font-body);
+            background-color: var(--main-bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
 
-.container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 20px;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-.section-padding {
-    padding: 80px 0;
-}
+        /* --- Header --- */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            background-color: rgba(13, 13, 13, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.section-title {
-    font-family: var(--font-heading);
-    font-size: 2.8rem;
-    text-align: center;
-    margin-bottom: 40px;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+        .logo {
+            font-family: var(--font-display);
+            font-size: 24px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .logo-icon {
+            color: var(--primary-accent-color);
+            margin-right: 8px;
+        }
 
-.lead-text {
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    max-width: 600px;
-    margin: 0 auto 40px auto;
-}
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
 
-/* --- TLAČÍTKA --- */
-.btn {
-    display: inline-block;
-    padding: 12px 24px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    cursor: pointer;
-}
-.btn-primary {
-    background-color: var(--primary-color);
-    color: #000;
-}
-.btn-primary:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 224, 255, 0.2);
-}
-.btn-secondary {
-    background-color: transparent;
-    border-color: var(--primary-color);
-    color: var(--primary-color);
-}
-.btn-secondary:hover {
-    background-color: var(--primary-color);
-    color: #000;
-}
+        nav ul li {
+            margin-left: 30px;
+        }
 
+        nav ul li a {
+            color: var(--secondary-text-color);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+            font-size: 14px;
+        }
 
-/* --- HLAVIČKA A NAVIGACE --- */
-.site-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    background-color: rgba(13, 17, 23, 0.8);
-    backdrop-filter: blur(10px);
-    padding: 15px 0;
-    border-bottom: 1px solid var(--border-color);
-}
-.site-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #fff;
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-}
-.logo img {
-    height: 40px;
-    margin-right: 10px;
-}
-.main-nav a {
-    color: var(--text-primary);
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: 700;
-    position: relative;
-}
-.main-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease;
-}
-.main-nav a:hover::after {
-    width: 100%;
-}
-.menu-toggle { display: none; }
-.cta-button { font-size: 0.9rem; }
+        nav ul li a:hover {
+            color: var(--text-color);
+        }
 
+        .cta-button {
+            font-family: var(--font-display);
+            background-color: var(--primary-accent-color);
+            color: var(--main-bg-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+        }
 
-/* --- HERO SEKCE --- */
-.hero {
-    /* ZMĚNA ZDE: Přidána rudá záře do pozadí */
-    background: radial-gradient(circle at 50% 50%, rgba(150, 20, 20, 0.2), transparent 60%),
-                var(--bg-dark);
-    padding-top: 80px;
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-}
-.hero .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-}
-.hero-text {
-    max-width: 50%;
-    flex-shrink: 0;
-    z-index: 2;
-}
-.hero h1 {
-    font-family: var(--font-heading);
-    font-size: 4rem;
-    line-height: 1.1;
-    color: #fff;
-    margin-bottom: 20px;
-}
-.hero .lead {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-    margin-bottom: 30px;
-}
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-}
-.hero-image {
-    max-width: 45%;
-    flex-shrink: 0;
-    z-index: 1;
-}
-.hero-image img {
-    width: 100%;
-    animation: float 6s ease-in-out infinite;
-    /* ZMĚNA ZDE: Přidán filtr pro rudou záři */
-    filter: drop-shadow(0 0 40px rgba(255, 30, 30, 0.4));
-}
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
-}
+        .cta-button:hover {
+            background-color: #1fae52;
+            color: var(--main-bg-color);
+        }
 
-/* --- SEKCE SLUŽBY --- */
-.services {
-    background-color: var(--bg-light);
-}
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-.service-item {
-    background-color: var(--bg-dark);
-    padding: 30px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.service-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-.service-item img {
-    height: 60px;
-    margin-bottom: 20px;
-}
-.service-item h3 {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: #fff;
-    margin-bottom: 10px;
-}
-.service-item p {
-    color: var(--text-secondary);
-}
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            background-image: url('1000003277.png');
+            background-size: cover; /* HODNOTA ZMĚNĚNA PRO SPRÁVNÉ ZOBRAZENÍ */
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            margin-top: -15vh;
+        }
 
-/* --- SEKCE GALERIE --- */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-}
-.gallery-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-}
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
-.gallery-item figcaption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-    color: #fff;
-    padding: 20px 15px 15px;
-    font-weight: 700;
-    transform: translateY(100%);
-    transition: transform 0.4s ease;
-    font-size: 0.9rem;
-}
-.gallery-item:hover figcaption {
-    transform: translateY(0);
-}
+        .hero h1, .hero h2, .section-title {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+        }
 
-/* --- SEKCE KONTAKT --- */
-.contact {
-    background-color: var(--bg-light);
-}
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    background-color: var(--bg-dark);
-    padding: 40px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-}
-.contact-details h3, .contact-form h3 {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    color: #fff;
-    margin-bottom: 20px;
-}
-.contact-details p {
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-}
-.contact-details a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-.contact-details a:hover {
-    color: var(--secondary-color);
-}
-.map-container {
-    margin-top: 30px;
-}
-.form-group {
-    margin-bottom: 20px;
-}
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    color: var(--text-secondary);
-}
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    background-color: var(--bg-light);
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    color: var(--text-primary);
-    font-family: var(--font-body);
-}
-.contact-form button {
-    width: 100%;
-    font-size: 1.1rem;
-}
-.form-note {
-    margin-top: 15px;
-    text-align: center;
-    color: var(--secondary-color);
-    min-height: 20px;
-}
+        .hero h1 {
+            font-size: 18px;
+            letter-spacing: 3px;
+            color: var(--secondary-text-color);
+            margin-bottom: 10px;
+        }
 
-/* --- PATIČKA --- */
-.site-footer {
-    padding: 30px 0;
-    text-align: center;
-    border-top: 1px solid var(--border-color);
-    color: var(--text-secondary);
-}
+        .hero h2 {
+            font-size: 95px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
 
-/* --- ANIMACE --- */
-[data-anim] {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-.in-view {
-    opacity: 1;
-    transform: translateY(0);
-}
+        .hero-buttons .service-button {
+            font-family: var(--font-display);
+            background-color: var(--primary-accent-color);
+            color: var(--main-bg-color);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-buttons .service-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--primary-accent-color);
+        }
 
-/* --- RESPONZIVITA --- */
-@media (max-width: 992px) {
-    .hero .container { flex-direction: column; text-align: center; }
-    .hero-text, .hero-image { max-width: 100%; }
-    .hero-image { margin-top: 40px; max-width: 70%; }
-    .hero h1 { font-size: 3rem; }
-    .hero-buttons { justify-content: center; }
-    .service-grid { grid-template-columns: 1fr; }
-    .gallery-grid { grid-template-columns: 1fr 1fr; }
-    .contact-grid { grid-template-columns: 1fr; }
-}
+        .hero-buttons a:not(.service-button) {
+            color: var(--secondary-text-color);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 700;
+        }
+         .hero-buttons a:not(.service-button):hover {
+            color: var(--text-color);
+         }
 
-@media (max-width: 768px) {
-    .section-padding { padding: 60px 0; }
-    .section-title { font-size: 2.2rem; }
-    .main-nav, .cta-button { display: none; }
+        /* --- Services Section --- */
+        .services {
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 60px;
+        }
 
-    .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
-        z-index: 1001;
-    }
-    .menu-toggle span {
-        display: block;
-        width: 25px;
-        height: 2px;
-        background-color: #fff;
-        margin: 5px 0;
-        transition: all 0.3s ease;
-    }
-    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .menu-toggle.active span:nth-child(2) { opacity: 0; }
-    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-    
-    .main-nav {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        height: 100vh;
-        background-color: var(--bg-light);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: right 0.4s ease-in-out;
-    }
-    .main-nav.active {
-        display: flex;
-        right: 0;
-    }
-    .main-nav a { margin: 20px 0; font-size: 1.5rem; }
-    .gallery-grid { grid-template-columns: 1fr; }
-}
+        .services-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .service-item {
+            background-color: var(--container-bg-color);
+            padding: 30px;
+            border-radius: 10px;
+            width: 18%;
+        }
+        
+        .service-item .icon {
+            font-size: 40px;
+            color: var(--primary-accent-color);
+            margin-bottom: 20px;
+        }
+        
+        .service-item h3 {
+            font-family: var(--font-display);
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        .service-item p {
+            font-size: 14px;
+            color: var(--secondary-text-color);
+            line-height: 1.6;
+        }
+
+        /* --- Gallery Section --- */
+        .gallery {
+            padding: 50px 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        .placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: var(--container-bg-color);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><span class="logo-icon">⚡</span>Insane-Servis</div>
+                <ul>
+                    <li><a href="#">SLUŽBY</a></li>
+                    <li><a href="#">OBLASTI</a></li>
+                    <li><a href="#">GALERIE</a></li>
+                    <li><a href="#">KONTAKT</a></li>
+                    <li><a href="#" class="cta-button">DOMLUVIT SERVIS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>SPECIALISTI NA ELEKTROKOLOBĚŽKY</h1>
+                <h2>INSANE-SERVIS</h2>
+                <div class="hero-buttons">
+                    <a href="#" class="service-button">SERVISY</a>
+                    <a href="#">Chci upravit svoji</a>
+                    <a href="#">Klouby pérování</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">CO DĚLÁM NEJČASTĚJI</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="icon">🛠️</div>
+                        <h3>MISTROUNA</h3>
+                        <p>Odemknutí omezení rychlosti, přizpůsobení výkonu</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="icon">🔩</div>
+                        <h3>AMOFASNY</h3>
+                        <p>Výměna standardních tlumičů za prémiové</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="icon">🔋</div>
+                        <h3>FOCRIÁLÍTA</h3>
+                        <p>Zvýšení kapacity baterie pro delší dojezd</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="icon">💨</div>
+                        <h3>PADEREDY</h3>
+                        <p>Instalace výkonnějších brzdových systémů</p>
+                    </div>
+                    <div class="service-item">
+                        <div class="icon">🖼️</div>
+                        <h3>GALERIKY</h3>
+                        <p>Ukázky mých realizovaných projektů a úprav</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="gallery">
+            <div class="container">
+                <h2 class="section-title">GALERIE MÉ PRÁCE</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="placeholder">OBRÁZEK 1</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder">OBRÁZEK 2</div>
+                    </div>
+                    <div class="gallery-item">
+                         <div class="placeholder">OBRÁZEK 3</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
