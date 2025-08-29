@@ -1,115 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INSANEKOLOBĚKY</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InsaneKolobezky — Servis, Tuning & Přestavby</title>
+  <meta name="description" content="Specialista na elektrokoloběžky a elektrovozítka. Servis, tuning, přestavby a úpravy na míru v Milovicích.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">⚡ INSANEKOLOBĚKY</div>
-            <nav>
-                <ul>
-                    <li><a href="#">SUZZY</a></li>
-                    <li><a href="#">BLICAR</a></li>
-                    <li><a href="#">GABIMEE</a></li>
-                    <li><a href="#">ZOTRAT</a></li>
-                    <li><a href="#" class="donate-button">DONNET EXPE</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="InsaneKolobezky - domů">
+      <img src="assets/logo.svg" alt="InsaneKolobezky Logo" width="38" height="38">
+      <span>InsaneKolobezky</span>
+    </a>
+    <nav class="nav">
+      <a href="#sluzby">Služby</a>
+      <a href="#tuning">Tuning</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#kontakt" class="btn small">Kontakt</a>
+    </nav>
+    <button class="burger" aria-label="Otevřít menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>SPECIALISTT NA ELEKTROKOLBĚŽKY</h1>
-            <h2>INSANEKOLOBĚK</h2>
-            <div class="hero-buttons">
-                <button>SORVICIV</button>
-                <button>Oot opt ara</button>
-                <button>Wiley proes</button>
-            </div>
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-bg">
+        <video autoplay loop muted playsinline>
+          <source src="assets/PixVerse_V5_Image_Text_360P_pulsujici_blesky_a.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="container grid-2">
+        <div class="stack" data-anim="fade-up">
+          <h1>🔧 Specialista na elektrokoloběžky a elektrovozítka</h1>
+          <p class="lead">
+            Servis, tuning, přestavby a <b>vychytávky na míru</b>. Rychle, poctivě a s citem pro detail.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#kontakt">Domluv si servis</a>
+            <a class="btn ghost" href="#sluzby">Prohlédnout služby</a>
+          </div>
+          <ul class="badges">
+            <li>Milovice • Tyršova 650</li>
+            <li>Praxe s výkonnými dual‑motor stroji</li>
+            <li>Diagnostika • Upgrade • Bezpečnost</li>
+          </ul>
         </div>
+        <div class="hero-card" data-anim="float-in">
+          <div class="card glass">
+            <h3>Rychlá diagnóza</h3>
+            <p>Šumí řídící jednotka? Zlobí BMS? Přesně zjistím, kde je problém — bez zbytečných výměn.</p>
+            <div class="divider"></div>
+            <h3>Bezpečný tuning</h3>
+            <p>Výkon s rozumem: chlazení, kabeláž, pojistky, firmware. Ne jen “víc ampérů”.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="what-i-do">
-        <div class="container">
-            <h2>CO DĚLÁM NEJČASTEJI</h2>
-            <div class="cards">
-                <div class="card">
-                    <div class="icon">❌</div>
-                    <h3>NISTROUNA</h3>
-                    <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div class="card">
-                    <div class="icon">🔲</div>
-                    <h3>AMOFASNY</h3>
-                    <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div class="card">
-                    <div class="icon">🔋</div>
-                    <h3>FOCRIALITA</h3>
-                    <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div class="card">
-                    <div class="icon">⚡</div>
-                    <h3>PADEREIOY</h3>
-                    <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div class="card">
-                    <div class="icon">🖼️</div>
-                    <h3>GALERIKT</h3>
-                    <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
+    <section id="sluzby" class="section">
+      <div class="container">
+        <h2 class="section-title" data-anim="fade-up">Co dělám nejčastěji</h2>
+        <div class="cards">
+          <article class="service card" data-anim="rise">
+            <h3>🛠️ Opravy & Údržba</h3>
+            <p>Brzdy, ložiska, řízení, motory, kabeláž, BMS. Od drobností po generálky.</p>
+            <ul class="bullets">
+              <li>Diagnostika závad</li>
+              <li>Servisní prohlídky</li>
+              <li>Výmena komponent</li>
+            </ul>
+          </article>
+          <article class="service card" data-anim="rise" data-delay="100">
+            <h3>⚡ Tuning výkonu</h3>
+            <p>Upgrade řídících jednotek, proudových limitů a chlazení pro stabilní výkon.</p>
+            <ul class="bullets">
+              <li>Dvojitý motor / vyšší napětí*</li>
+              <li>Optimalizace kabeláže</li>
+              <li>Firmware / soft‑tuning</li>
+            </ul>
+          </article>
+          <article class="service card" data-anim="rise" data-delay="200">
+            <h3>📱 Vychytávky na míru</h3>
+            <p>Dálkové profily výkonu, LED podsvit, alarm, nabíječka, tracker… na přání.</p>
+            <ul class="bullets">
+              <li>Bezpečnostní prvky</li>
+              <li>LED a design</li>
+              <li>Nabíjení & držáky</li>
+            </ul>
+          </article>
+          <article class="service card" data-anim="rise" data-delay="300">
+            <h3>🔌 Přestavby</h3>
+            <p>Z klasiky udělám elektro. Nejen koloběžky — <em>prakticky cokoliv</em>.</p>
+            <ul class="bullets">
+              <li>Návrh elektriky</li>
+              <li>Baterie & BMS</li>
+              <li>Homologace — konzultace</li>
+            </ul>
+          </article>
         </div>
+        <p class="note">* Vždy s ohledem na bezpečnost, chlazení a životnost dílů.</p>
+      </div>
     </section>
 
-    <section class="gallery-section">
-        <div class="container">
-            <h2>GALER MÉ PRACE</h2>
-            <div class="gallery-images">
-                <img src="gallery_image_1.png" alt="Gallery Image 1">
-                <img src="gallery_image_2.png" alt="Gallery Image 2">
-                <img src="gallery_image_3.png" alt="Gallery Image 3">
-            </div>
+    <section id="tuning" class="section split">
+      <div class="container grid-2">
+        <div class="stack" data-anim="fade-up">
+          <h2>Energický tuning bez kompromisů</h2>
+          <p class="lead">Vyladím výkon i vzhled. Kde to dává smysl, přidám druhý motor, posílím kabeláž a chladicí plochy, doladím brzdy a geometrii.</p>
+          <ul class="checks">
+            <li>Smart profily výkonu (eco / city / sport)</li>
+            <li>Neon/LED sety a designové prvky</li>
+            <li>Upgrade baterie, pojistek, konektorů</li>
+          </ul>
+          <a class="btn primary" href="#kontakt">Chci nezávaznou konzultaci</a>
         </div>
+        <div class="stack media" data-anim="float-in">
+          <div class="poster">
+            <div class="glow"></div>
+            <img src="assets/feature-illustration.svg" alt="Stylizovaná ilustrace elektrokoloběžky">
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="service-section">
-        <div class="container">
-            <h2>SERVICE</h2>
-            <!-- Content for Service section -->
+    <section id="galerie" class="section">
+      <div class="container">
+        <h2 class="section-title" data-anim="fade-up">Před → Po</h2>
+        <div class="gallery">
+          <figure class="shot" data-anim="zoom-in"><img src="assets/IMG_20240513_133030.jpg" alt="Spálený stator motoru"><figcaption>Spálený stator motoru - ukázka z náročné opravy.</figcaption></figure>
+          <figure class="shot" data-anim="zoom-in" data-delay="100"><img src="assets/IMG_20240617_150953.jpg" alt="Úpravy kabeláže a komponentů"><figcaption>Detailní pohled na úpravy kabeláže a komponentů.</figcaption></figure>
+          <figure class="shot" data-anim="zoom-in" data-delay="200"><img src="assets/IMG_20241001_122603.jpg" alt="Poškozená řídicí jednotka"><figcaption>Poškozená řídicí jednotka před opravou.</figcaption></figure>
+          <figure class="shot" data-anim="zoom-in" data-delay="100"><img src="assets/IMG_20250522_225724.jpg" alt="Příprava na servis"><figcaption>Příprava stroje na servis a tuning.</figcaption></figure>
+          <figure class="shot" data-anim="zoom-in" data-delay="200"><img src="assets/IMG_20250601_131730.jpg" alt="Výroba baterie"><figcaption>Výroba custom baterie pro zvýšení dojezdu.</figcaption></figure>
+          <figure class="shot" data-anim="zoom-in"><img src="assets/_storage_emulated_0_DCIM_Camera_IMG_20250717_174221.jpg" alt="Servis Xiaomi koloběžky"><figcaption>Xiaomi koloběžka na kompletním servisu.</figcaption></figure>
         </div>
+      </div>
     </section>
 
-    <section class="cartiale-section">
-        <div class="container">
-            <h2>CARTIALE HE AKMİS</h2>
-            <!-- Content for Cartiale section -->
-        </div>
-    </section>
-
-    <section class="gallery-section">
-        <div class="container">
-            <h2>GALER MÉ PRACE</h2>
-            <div class="gallery-images">
-                <img src="gallery_image_4.png" alt="Gallery Image 4">
-                <img src="gallery_image_5.png" alt="Gallery Image 5">
-                <img src="gallery_image_6.png" alt="Gallery Image 6">
-            </div>
-        </div>
-    </section>
-
-    <section class="slowen-section">
-        <div class="container">
-            <h2>SLOWEN ALINGARORS</h2>
-            <!-- Content for Slowen section -->
-        </div>
-    </section>
-
-</body>
-</html>
-
+    <section id="kontakt" class="section contact">
+      <div class="container grid-2">
+        <div class="stack" data-anim="fade-up">
+          <h2>Kontakt</h2>
+          <p><b>InsaneKolobezky</b><br> Tyršova 650, 289 24 Milovice</p>
+          <p>📞 <a href="tel:+420731253101">731 253 101</a><br>
+             📧 <a href="mailto:insanebad2@gmail.com">insanebad2@gmail.com</a></p>
+          <div class="contact-card">
+            <p class="dim">Napiš pár vět o problému a já se ozvu zpět.</p>
+            <form id="contactForm">
+              <div class="row"><input type="text" name="name" placeholder="Tvé jméno" required></div>
+              <div class="row"><input type="tel"
